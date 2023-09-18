@@ -1,0 +1,58 @@
+#include <iostream>
+using namespace std;
+
+class Student
+{
+public:
+    int p, c, m, roll;
+    char name[30];
+    float avg, per, total;
+
+    void accept()
+    {
+        cout << "Enter roll no of student:";
+        cin >> roll;
+        cout << "Enter name of student:";
+        cin >> name;
+        cout << "Enter the marks in Physics:";
+        cin >> p;
+        cout << "Enter the marks in Chemistry :";
+        cin >> c;
+        cout << "Enter the marks in Maths:";
+        cin >> m;
+    }
+
+    void calculate()
+    {
+        total = p + c + m;
+        avg = total / 3;
+        per = (total / 300) * 100;
+    }
+
+    void display()
+    {
+        cout << "Roll no.:" << roll;
+        cout << "\nName:" << name;
+        cout << "\nTotal:" << total;
+        cout << "\nAverage:" << avg;
+        cout << "\nPercentage:" << per;
+
+        if (75 <= per <= 100)
+            cout << "\nDistinction.";
+        else if (60 <= per < 75)
+            cout << "\nFirst Class.";
+        else if (35 <= per < 60)
+            cout << "\nPass.";
+        else if (35 > per)
+            cout << "\nFail.";
+    }
+};
+
+int main()
+{
+    Student v;
+    v.accept();
+    v.calculate();
+    v.display();
+    return 0;
+}
